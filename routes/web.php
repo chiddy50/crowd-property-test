@@ -20,14 +20,10 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class, 'index'])->name('dashboard');
 
-Route::get('/register', [RegisterController::class, 'index'])
-    ->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
-Route::post('/register-user', [RegisterController::class, 'store'])
-    // ->middleware('guest')
-    ->name('register.user');
+Route::post('/register-user', [RegisterController::class, 'store'])->name('register.user');
 
-Route::get('login', [LoginController::class, 'index'])
-->name('login');
+Route::get('login', [LoginController::class, 'index'])->name('login');
 
 Route::post('login-user', [LoginController::class, 'loginUser'])->name('login.user');
