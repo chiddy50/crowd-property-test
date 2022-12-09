@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Vedmant\FeedReader\Facades\FeedReader;
+use Illuminate\Support\Facades\Http;
+use App\Models\FeedList;
+use Log;
 
 class UserController extends Controller
 {
@@ -15,10 +19,20 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        if(Auth::check()){
-            return view('welcome');
-        }
+        // if(Auth::check()){
 
-        return redirect("login")->withSuccess('Please sign in or register');
+            // $user = Auth::user();
+            // $feed_url = $user->feeds();
+
+            // dd($feed_url);
+
+            // return view('welcome')->with([
+            //     'data' => $feed_url
+            // ]);
+
+        // }
+
+        // return redirect("login")->withSuccess('Please sign in or register');
     }
+
 }
