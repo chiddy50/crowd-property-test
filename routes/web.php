@@ -19,6 +19,7 @@ use App\Http\Controllers\UserController;
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', [UserController::class, 'index'])->name('dashboard');
+    Route::get('/feed/{id}', [UserController::class, 'feed'])->name('feed');
 });
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');

@@ -109,8 +109,9 @@ class RegisterController extends Controller
             'https://www.nasa.gov/rss/dyn/breaking_news.rss',
             'http://www.independent.co.uk/news/uk/rss',
             'http://feeds.feedburner.com/daily-express-news-showbiz',
-            'https://www.huffpost.com/section/world-news/feed',
-            'http://feeds.foxnews.com/foxnews/latest'
+            'http://feeds.foxnews.com/foxnews/latest',
+            'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
+            'https://feeds.a.dj.com/rss/RSSWorldNews.xml'
         ];
 
         $feeds_count = count($rss_feeds)- 1;

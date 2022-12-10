@@ -47,8 +47,13 @@ body {
     width: 100%;
 }
 
+.feed:hover {
+    background-color:#ddd;
+}
 
-
+.feed:hover a{
+    color:rgb(76, 76, 204);
+}
 
 
 
