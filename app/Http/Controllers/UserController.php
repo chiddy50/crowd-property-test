@@ -21,14 +21,13 @@ class UserController extends Controller
     {
         // if(Auth::check()){
 
-            // $user = Auth::user();
-            // $feed_url = $user->feeds();
+            $user = Auth::user();
+            $feeds = $user->feeds;
 
-            // dd($feed_url);
-
-            // return view('welcome')->with([
-            //     'data' => $feed_url
-            // ]);
+            // dd($feeds);
+            return view('welcome')->with([
+                'feeds' => $feeds
+            ]);
 
         // }
 

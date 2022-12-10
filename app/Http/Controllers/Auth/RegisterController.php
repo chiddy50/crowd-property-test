@@ -22,6 +22,9 @@ class RegisterController extends Controller
      * @return \Illuminate\View\View
      */
     public function index(Request $request){
+        // Session::flush();
+        // Auth::logout();
+
         return view('auth.register');
     }
 
@@ -81,11 +84,15 @@ class RegisterController extends Controller
                 // $array = collect($xml);
 
                 $feed = FeedList::where('feed_url', $feed_url)->first();
-                $feed->title = $array['channel']['title'] ?? null;
-                $feed->story_count = count($array['channel']['item']) ?? null;
-                $feed->save();
+                if ($feed) {
+                    $feed->title = $array['channel']['title'] ?? null;
+                    $feed->story_count = count($array['channel']['item']) ?? null;
+                    $feed->save();
+                    return [ 'error' => false];
+                }else{
+                    return [ 'error' => true];
+                }
 
-                return [ 'error' => false];
             }else{
                 return [ 'error' => true];
             }

@@ -17,8 +17,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-
-Route::get('/', [UserController::class, 'index'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', [UserController::class, 'index'])->name('dashboard');
+});
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
