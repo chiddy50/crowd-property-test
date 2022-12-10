@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="">
+    <div style="padding: 20px;background: gray; color: white; ">
+        <a class="" href="{{ route('signout') }}">Logout</a>
+    </div>
     <div class="px-6 py-4">
+        @if($title)
+
         <h4 style="font-size: 3rem; color: gray;margin-bottom: 1rem;" class="mb-4">
             {{ $title }}
         </h4>
@@ -15,6 +20,7 @@
                 <p class="text-sm text-gray-400">{{ $story['description'] }}</p>
             </div>
         @endforeach
+        @endif
     </div>
 
 </div>
