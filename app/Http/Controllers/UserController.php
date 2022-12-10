@@ -55,10 +55,6 @@ class UserController extends Controller
 
                 $title = $array['channel']['title'] ?? 'Default title';
                 $stories = $array['channel']['item'] ?? [];
-                return [
-                    'title' => $title,
-                    'stories' => $stories,
-                ];
 
                 return view('feed')->with([
                     'title' => $title,
