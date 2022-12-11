@@ -17,8 +17,11 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', [UserController::class, 'index'])->name('dashboard');
+    Route::get('/feed/{id}', [UserController::class, 'feed'])->name('feed');
 
-Route::get('/', [UserController::class, 'index'])->name('dashboard');
+});
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
@@ -27,3 +30,4 @@ Route::post('/register-user', [RegisterController::class, 'store'])->name('regis
 Route::get('login', [LoginController::class, 'index'])->name('login');
 
 Route::post('login-user', [LoginController::class, 'loginUser'])->name('login.user');
+Route::get('signout', [LoginController::class, 'signOut'])->name('signout');
