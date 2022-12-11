@@ -25,11 +25,10 @@ Route::group(['middleware' => 'auth'], function() {
 
 });
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-
-Route::post('/register-user', [RegisterController::class, 'store'])->name('register.user');
-
-Route::get('login', [LoginController::class, 'index'])->name('login');
-
-Route::post('login-user', [LoginController::class, 'loginUser'])->name('login.user');
-Route::get('signout', [LoginController::class, 'signOut'])->name('signout');
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register-user', [RegisterController::class, 'store'])->name('register.user');
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login-user', [LoginController::class, 'loginUser'])->name('login.user');
+    Route::get('signout', [LoginController::class, 'signOut'])->name('signout');
+});

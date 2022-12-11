@@ -70,17 +70,22 @@ class UserController extends Controller
                 $title = $array['channel']['title'] ?? 'Default title';
                 $stories = $array['channel']['item'] ?? [];
 
+                $feed->story_count = count($stories);
+                $feed->save();
+
                 return view('feed')->with([
                     'title' => $title,
                     'stories' => $stories,
                 ]);
             }else{
-                return [ 'error' => true];
+                return view('feed')->with([
+                    'title' => null,
+                    'stories' => [],
+                ]);
             }
 
         }catch (\Exception $e) {
             Log::error('Error fetching RSS feed: ' . $e->getMessage());
-            // return [ 'error' => true];
         }
 
 
