@@ -20,6 +20,8 @@ use App\Http\Controllers\UserController;
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', [UserController::class, 'index'])->name('dashboard');
     Route::get('/feed/{id}', [UserController::class, 'feed'])->name('feed');
+    Route::post('/subscribe', [UserController::class, 'subscribe'])->name('subscribe');
+    Route::post('/unsubscribe', [UserController::class, 'unsubscribe'])->name('unsubscribe');
 
 });
 

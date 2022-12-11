@@ -55,8 +55,20 @@ body {
     color:rgb(76, 76, 204);
 }
 
+.custom__btn {
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.subscribe__btn {
+    background-color: #3483eb;
+}
 
-
+.unsubscribe__btn {
+    background-color: #db3434;
+}
 
 
 
